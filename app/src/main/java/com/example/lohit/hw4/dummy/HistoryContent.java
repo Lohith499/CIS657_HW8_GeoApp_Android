@@ -21,13 +21,13 @@ public class HistoryContent {
     }
     static {
         DateTime now = DateTime.now();
-        addItem(new HistoryItem("43.12444", "-85.3523", "42.1234", "85.3555",
+        addItem(new HistoryItem("43.145", "-85.127", "42.4545", "85.8585",
                 now.minusDays(1)));
-        addItem(new HistoryItem("42.12444", "-77.3523", "42.1234", "85.3555",
+        addItem(new HistoryItem("42.123", "-77.741", "42.6363", "85.2525",
                 now.minusDays(1)));
-        addItem(new HistoryItem("43.12444", "-85.3523", "42.1234", "85.3555",
+        addItem(new HistoryItem("22.152", "-78.896", "44.123", "33.487",
                 now.plusDays(1)));
-        addItem(new HistoryItem("55.12444", "-85.3523", "42.1234", "85.3555",
+        addItem(new HistoryItem("14.3636", "74.858", "15.986", "15.145",
                 now.plusDays(1)));
     }
     // match with inputs with 4 params

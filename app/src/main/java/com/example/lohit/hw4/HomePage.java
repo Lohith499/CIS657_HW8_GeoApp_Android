@@ -23,6 +23,9 @@ import com.example.lohit.hw4.dummy.HistoryContent;
 
 import org.joda.time.DateTime;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 import static android.text.TextUtils.split;
 
 
@@ -132,16 +135,24 @@ public class HomePage extends AppCompatActivity  {
         Location loc2 = new Location("");
         loc2.setLatitude(Double.parseDouble(x2.getText().toString()));
         loc2.setLongitude(Double.parseDouble(y2.getText().toString()));
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.CEILING);
+
+
 
 
         float distanceInMeters = (loc1.distanceTo(loc2) / 1000) ; //kms
+
         if (dmeasure.compareTo("Kilometers") != 0){
 
             distanceInMeters = distanceInMeters * Float.valueOf("1.6");
-            dist.setText(Float.toString(distanceInMeters)+" Miles");
+            Double d = Double.parseDouble(Float.toString(distanceInMeters));
+
+            dist.setText( df.format(d)+" Miles");
 
         } else {
-            dist.setText(Float.toString(distanceInMeters)+" Kms");
+            Double d = Double.parseDouble(Float.toString(distanceInMeters));
+            dist.setText(df.format(d)+" Kms");
         }
 
 
@@ -150,9 +161,13 @@ public class HomePage extends AppCompatActivity  {
         if (bmeasure.compareTo("Degrees") != 0){
 
             bearingbetween = bearingbetween * Float.valueOf("17.777");
-            bear.setText(Float.toString(bearingbetween)+"Mils");
+
+            Double b = Double.parseDouble(Float.toString(bearingbetween));
+
+            bear.setText(df.format(b)+"Mils");
         } else {
-            bear.setText(Float.toString(bearingbetween)+"Degrees");
+            Double b = Double.parseDouble(Float.toString(bearingbetween));
+            bear.setText(df.format(b)+"Degrees");
         }
 
         HistoryContent.HistoryItem item = new
